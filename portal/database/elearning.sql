@@ -4,9 +4,7 @@ SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
---
--- Database: `elearning`
---
+
 
 -- --------------------------------------------------------
 
@@ -25,7 +23,7 @@ CREATE TABLE `academic_year` (
 --
 
 INSERT INTO `academic_year` (`id`, `sy`, `status`) VALUES
-(1, '2020-2019', 1);
+(1, '2021-2020', 1);
 
 -- --------------------------------------------------------
 
@@ -157,7 +155,7 @@ CREATE TABLE `faculty` (
 --
 
 INSERT INTO `faculty` (`id`, `faculty_id`, `department_id`, `firstname`, `middlename`, `lastname`, `email`, `contact`, `gender`, `address`, `password`, `dob`, `avatar`) VALUES
-(1, '12345', 1, 'George', 'C', 'Wilson', 'gwilson@sample.com', '+1234567899', 'Male', 'Sample Address', '827ccb0eea8a706c4c34a16891f84e7b', 1988, NULL);
+(1, '12345', 1, 'Hussnain', 'C', 'Ahmad', 'HussnainAHmad521@gmail.com', '+923357868052', 'Male', 'Sample Address', 'admin', 1997, NULL);
 
 -- --------------------------------------------------------
 
@@ -225,6 +223,32 @@ INSERT INTO `lesson_class` (`lesson_id`, `class_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `Admission_form requests`
+--
+
+CREATE TABLE `admission_form` (
+  `id` int(30) NOT NULL,
+  `firstname` varchar(150) NOT NULL,
+  `c` varchar(150) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `contact` varchar(150) NOT NULL,
+  `dob` int(11) NOT NULL,
+  `educationlevel` text DEFAULT NULL,
+  `gender` varchar(20) NOT NULL,
+  `address` text DEFAULT NULL,
+  `city` text DEFAULT NULL,
+  `zipcode` int(11) NOT NULL,
+  `preferenceCourse` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+
+
+
+
+
+--
 -- Table structure for table `students`
 --
 
@@ -248,7 +272,7 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `student_id`, `firstname`, `middlename`, `lastname`, `email`, `contact`, `gender`, `address`, `password`, `dob`, `avatar`) VALUES
-(1, '6231415', 'John', 'D', 'Smith', 'jsmith@sample.com', '+1234567899', 'Male', 'Sample address', '04e4ff14103f267c4b443362cefe9570', 2005, NULL);
+(1, '6231415', 'Nasar', 'Ali', 'Khan', 'HusnainAHmad521@gmail.com', '+923357868052', 'Male', 'Sample address', 'admin', 1997, NULL);
 
 -- --------------------------------------------------------
 
@@ -308,9 +332,9 @@ CREATE TABLE `system_info` (
 
 INSERT INTO `system_info` (`id`, `meta_field`, `meta_value`) VALUES
 (1, 'name', 'Simple eLearning System'),
-(2, 'address', 'Philippines'),
+(2, 'address', 'Pakistan'),
 (3, 'contact', '+1234567890'),
-(4, 'email', 'info@sample.com'),
+(4, 'email', 'HusnainAhmad521@gmail.com'),
 (6, 'short_name', 'SES'),
 (9, 'logo', 'uploads/1616118180_aclc.jpg');
 
@@ -337,7 +361,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `password`, `avatar`, `last_login`, `date_added`, `date_updated`) VALUES
-(1, 'John', 'Smith', 'admin', '0192023a7bbd73250516f069df18b500', 'uploads/1619140500_avatar.png', NULL, '2021-01-20 14:02:37', '2021-04-23 15:14:05'),
+(1, 'Husnain', 'Ahmad', 'admin', 'admin', 'uploads/1619140500_avatar.png', NULL, '2021-01-20 14:02:37', '2021-04-23 15:14:05'),
 (2, 'Georgee', 'Wilson', '', '', NULL, NULL, '2021-04-28 21:01:58', NULL);
 
 --
@@ -380,6 +404,10 @@ ALTER TABLE `faculty`
 ALTER TABLE `lessons`
   ADD PRIMARY KEY (`id`);
 
+
+ALTER TABLE `admission_form`
+  ADD PRIMARY KEY (`id`);
+
 --
 -- Indexes for table `students`
 --
@@ -417,6 +445,9 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for table `academic_year`
 --
+ALTER TABLE `admission_form`
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 ALTER TABLE `academic_year`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 

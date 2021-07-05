@@ -18,7 +18,7 @@ class Login extends DBConnection {
 	public function login(){
 		extract($_POST);
 
-		$qry = $this->conn->query("SELECT * from users where username = '$username' and password = md5('$password') ");
+		$qry = $this->conn->query("SELECT * from users where username = '$username' and password = '$password' ");
 		if($qry->num_rows > 0){
 			foreach($qry->fetch_array() as $k => $v){
 				if(!is_numeric($k) && $k != 'password'){
@@ -35,13 +35,13 @@ class Login extends DBConnection {
 		}
 		return json_encode(array('status'=>'success'));
 		}else{
-		return json_encode(array('status'=>'incorrect','last_qry'=>"SELECT * from users where username = '$username' and password = md5('$password') "));
+		return json_encode(array('status'=>'incorrect','last_qry'=>"SELECT * from users where username = '$username' and `password` = '$password' "));
 		}
 	}
 	public function flogin(){
 		extract($_POST);
 
-		$qry = $this->conn->query("SELECT * from faculty where  faculty_id = '$faculty_id' and `password` = '".md5($password)."' ");
+		$qry = $this->conn->query("SELECT * from faculty where  faculty_id = '$faculty_id' and `password` = '$password)' ");
 		if($qry->num_rows > 0){
 			foreach($qry->fetch_array() as $k => $v){
 				if(!is_numeric($k)){
@@ -64,7 +64,7 @@ class Login extends DBConnection {
 	public function slogin(){
 		extract($_POST);
 
-		$qry = $this->conn->query("SELECT * from students where  student_id = '$student_id' and `password` = '".md5($password)."' ");
+		$qry = $this->conn->query("SELECT * from students where  student_id = '$student_id' and `password` = '$password'");
 		if($qry->num_rows > 0){
 			foreach($qry->fetch_array() as $k => $v){
 				if(!is_numeric($k)){

@@ -35,8 +35,8 @@ $headers .= "Content-Transfer-Encoding: quoted-printable" . PHP_EOL;
 
 $user = "$email_newsletter";
 $usersubject = "Thank You";
-$userheaders = "From: info@udema.com\n";
-$usermessage = "Thank you for join to Udema Newsletter!";
+$userheaders = "From: Husnainahmad521@gmail.com\n";
+$usermessage = "Thank you for join to Apni University Newsletter!";
 mail($user,$usersubject,$usermessage,$userheaders);
 
 if(mail($address, $e_subject, $msg, $headers)) {
