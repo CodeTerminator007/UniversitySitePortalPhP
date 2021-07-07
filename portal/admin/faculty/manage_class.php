@@ -1,6 +1,6 @@
 <?php 
 require_once('../../config.php');
-$faculty_id = $_GET['faculty_id'];
+$faculty_id =  $_settings->userdata('faculty_id');
 $qry = $conn->query("SELECT *,CONCAT(class_id,'_',subject_id) as class_subj FROM `class_subjects_faculty` where faculty_id = '$faculty_id' ");
 $class_subj_arr = array();
 while($row= $qry->fetch_assoc()){

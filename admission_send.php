@@ -8,11 +8,7 @@
 <body>
     <center>
         <?php
- 
-        // servername => localhost
-        // username => root
-        // password => empty
-        // database name => staff
+
         $conn = mysqli_connect("localhost", "root", "", "hussnainnasaruniversity");
          
         // Check connection
@@ -41,9 +37,9 @@
             '$address','$city','$zip_code','$preferences[0]')";
          
         if(mysqli_query($conn, $sql)){
-            echo "<h3>data stored in a database successfully."
-                . " Please browse your localhost php my admin"
-                . " to view the updated data</h3>";
+            echo "<h3>data stored in a database successfully.";
+            header("Location: index.html");
+
  
         } else{
             echo "ERROR: Hush! Sorry $sql. "

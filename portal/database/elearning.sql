@@ -331,7 +331,7 @@ CREATE TABLE `system_info` (
 --
 
 INSERT INTO `system_info` (`id`, `meta_field`, `meta_value`) VALUES
-(1, 'name', 'Simple eLearning System'),
+(1, 'name', 'Hussnain Ahmad'),
 (2, 'address', 'Pakistan'),
 (3, 'contact', '+1234567890'),
 (4, 'email', 'HusnainAhmad521@gmail.com'),

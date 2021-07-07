@@ -41,7 +41,7 @@ class Login extends DBConnection {
 	public function flogin(){
 		extract($_POST);
 
-		$qry = $this->conn->query("SELECT * from faculty where  faculty_id = '$faculty_id' and `password` = '$password)' ");
+		$qry = $this->conn->query("SELECT * from faculty where  faculty_id = '$faculty_id' and `password` = md5('$password') ");
 		if($qry->num_rows > 0){
 			foreach($qry->fetch_array() as $k => $v){
 				if(!is_numeric($k)){

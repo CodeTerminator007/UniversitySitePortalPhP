@@ -41,9 +41,9 @@
 			<a href="index.html"><img src="img/logo.png" width="149" height="42" data-retina="true" alt=""></a>
 		</div>
 		<ul id="top_menu">
-			<li><a href="login.html" class="login">Login</a></li>
+			<li><a href="admission.html" class="login">Admission</a></li>
 			<li><a href="#0" class="search-overlay-menu-btn">Search</a></li>
-			<li class="hidden_tablet"><a href="admission.html" class="btn_1 rounded">Admission</a></li>
+			<li class="hidden_tablet"><a href="login.html" class="btn_1 rounded">Login</a></li>
 		</ul>
 		<!-- /top_menu -->
 		<a href="#menu" class="btn_mobile">
@@ -58,7 +58,7 @@
 				<li><span><a href="index.html">Home</a></span>
 
 				</li>
-				<li><span><a href="courses-list-sidebar.html">Courses</a></span>
+				<li><span><a href="courses-list-sidebar.php">Courses</a></span>
 				</li>
 				<li><span><a href="contacts.html">Contact</a></span>
 				</li>
@@ -79,10 +79,10 @@
 	<!-- /header -->
 	
 	<main>
-		<section id="hero_in" class="courses">
+		<section id="hero_in" class="courses" style="background-image: url(img/uni1.jpg);">
 			<div class="wrapper">
 				<div class="container">
-					<h1 class="fadeInUp"><span></span>Online courses</h1>
+					<h1 class="fadeInUp"><span></span> courses</h1>
 				</div>
 			</div>
 		</section>
@@ -129,36 +129,37 @@
 							<div class="filter_type">
 								<h6>Category</h6>
 								<ul>
+										<?php
+
+										$conn = mysqli_connect("localhost", "root", "", "hussnainnasaruniversity");
+										 
+										// Check connection
+										if($conn === false){
+											die("ERROR: Could not connect. "
+												. mysqli_connect_error());
+										}
+										
+										$i =1;
+										$qry = $conn->query("SELECT * from department");
+										$rows_count_value = mysqli_num_rows($qry);
+										while($row=$qry->fetch_assoc()):
+																				
+										?>									
 									<li>
 										<label>
-											<input type="checkbox" class="icheck" checked>all <small>(945)</small>
+											<input type="checkbox" class="icheck" checked>all <small>(<?php echo $rows_count_value ?>)</small>
 										</label>
 									</li>
 									<li>
-										<label>
-											<input type="checkbox" class="icheck">Architecture <small>(45)</small>
-										</label>
+
+
 									</li>
 									<li>
 										<label>
-											<input type="checkbox" class="icheck">Managment <small>(30)</small>
+											<input type="checkbox" class="icheck"><?php echo $row['department']?>
 										</label>
 									</li>
-									<li>
-										<label>
-											<input type="checkbox" class="icheck">Business <small>(25)</small>
-										</label>
-									</li>
-									<li>
-										<label>
-											<input type="checkbox" class="icheck">Litterature <small>(56)</small>
-										</label>
-									</li>
-									<li>
-										<label>
-											<input type="checkbox" class="icheck">Biology <small>(10)</small>
-										</label>
-									</li>
+									
 								</ul>
 							</div>
 							<div class="filter_type">
@@ -209,7 +210,7 @@
 							<div class="col-lg-5">
 								<figure class="block-reveal">
 									<div class="block-horizzontal"></div>
-									<a href="course-detail.html"><img src="http://via.placeholder.com/800x533/ccc/fff/course__list_1.jpg" alt=""></a>
+									<a href="#"><img src="http://localhost/UniversityWebProject/img/course.png" alt=""></a>
 									<div class="preview"><span>Preview course</span></div>
 								</figure>
 							</div>
@@ -218,126 +219,19 @@
 									<a href="#0" class="wish_bt"></a>
 									<div class="price"></div>
 									<small>Category</small>
-									<h3>Persius delenit has cu</h3>
-									<p>Dicam diceret ut ius, no epicuri dissentiet philosophia vix. Eam id legimus torquatos cotidieque, usu decore percipitur definitiones ex, nihil utinam recusabo mel no. </p>
+									<h3><?php echo $row['department']?></h3>
+									<p><?php echo $row['description']?></p>
 									<div class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></div>
 								</div>
 								<ul>
-									<li><i class="icon_clock_alt"></i> 1h 30min</li>
-									<li><i class="icon_like"></i> 890</li>
-									<li><a href="course-detail.html">Enroll now</a></li>
+									<li><a href="admission.html">Enroll now</a></li>
 								</ul>
 							</div>
 						</div>
 					</div>
 					<!-- /box_list -->
-					<div class="box_list wow">
-						<div class="row no-gutters">
-							<div class="col-lg-5">
-								<figure class="block-reveal">
-									<div class="block-horizzontal"></div>
-									<a href="course-detail.html"><img src="http://via.placeholder.com/800x533/ccc/fff/course__list_2.jpg" class="img-fluid" alt=""></a>
-									<div class="preview"><span>Preview course</span></div>
-								</figure>
-							</div>
-							<div class="col-lg-7">
-								<div class="wrapper">
-									<a href="#0" class="wish_bt"></a>
-									<div class="price"></div>
-									<small>Category</small>
-									<h3>At deseruisse scriptorem</h3>
-									<p>Dicam diceret ut ius, no epicuri dissentiet philosophia vix. Id usu zril tacimates neglegentur. Eam id legimus torquatos cotidieque, usu decore percipitur definitiones ex, nihil utinam recusabo mel no. </p>
-									<div class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></div>
-								</div>
-								<ul>
-									<li><i class="icon_clock_alt"></i> 1h 30min</li>
-									<li><i class="icon_like"></i> 890</li>
-									<li><a href="course-detail.html">Enroll now</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<!-- /box_list -->
-					<div class="box_list wow">
-						<div class="row no-gutters">
-							<div class="col-lg-5">
-								<figure class="block-reveal">
-									<div class="block-horizzontal"></div>
-									<a href="course-detail.html"><img src="http://via.placeholder.com/800x533/ccc/fff/course__list_3.jpg" class="img-fluid" alt=""></a>
-									<div class="preview"><span>Preview course</span></div>
-								</figure>
-							</div>
-							<div class="col-lg-7">
-								<div class="wrapper">
-									<a href="#0" class="wish_bt"></a>
-									<div class="price">$120</div>
-									<small>Category</small>
-									<h3>Ea vel semper quaerendum</h3>
-									<p>Dicam diceret ut ius, no epicuri dissentiet philosophia vix. Id usu zril tacimates neglegentur. Eam id legimus torquatos cotidieque, usu decore percipitur definitiones ex, nihil utinam recusabo mel no. </p>
-									<div class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></div>
-								</div>
-								<ul>
-									<li><i class="icon_clock_alt"></i> 1h 30min</li>
-									<li><i class="icon_like"></i> 890</li>
-									<li><a href="course-detail.html">Enroll now</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<!-- /box_list -->
-					<div class="box_list wow">
-						<div class="row no-gutters">
-							<div class="col-lg-5">
-								<figure class="block-reveal">
-									<div class="block-horizzontal"></div>
-									<a href="course-detail.html"><img src="http://via.placeholder.com/800x533/ccc/fff/course__list_4.jpg" class="img-fluid" alt=""></a>
-									<div class="preview"><span>Preview course</span></div>
-								</figure>
-							</div>
-							<div class="col-lg-7">
-								<div class="wrapper">
-									<a href="#0" class="wish_bt"></a>
-									<div class="price">$54</div>
-									<small>Category</small>
-									<h3>Ei has exerci graecis</h3>
-									<p>Dicam diceret ut ius, no epicuri dissentiet philosophia vix. Id usu zril tacimates neglegentur. Eam id legimus torquatos cotidieque, usu decore percipitur definitiones ex, nihil utinam recusabo mel no. </p>
-									<div class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></div>
-								</div>
-								<ul>
-									<li><i class="icon_clock_alt"></i> 1h 30min</li>
-									<li><i class="icon_like"></i> 890</li>
-									<li><a href="course-detail.html">Enroll now</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<!-- /box_list -->
-					<div class="box_list wow">
-						<div class="row no-gutters">
-							<div class="col-lg-5">
-								<figure class="block-reveal">
-									<div class="block-horizzontal"></div>
-									<a href="course-detail.html"><img src="http://via.placeholder.com/800x533/ccc/fff/course__list_5.jpg" class="img-fluid" alt=""></a>
-									<div class="preview"><span>Preview course</span></div>
-								</figure>
-							</div>
-							<div class="col-lg-7">
-								<div class="wrapper">
-									<a href="#0" class="wish_bt"></a>
-									<div class="price">$60</div>
-									<small>Category</small>
-									<h3>Decore tractatos</h3>
-									<p>Dicam diceret ut ius, no epicuri dissentiet philosophia vix. Id usu zril tacimates neglegentur. Eam id legimus torquatos cotidieque, usu decore percipitur definitiones ex, nihil utinam recusabo mel no. </p>
-									<div class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></div>
-								</div>
-								<ul>
-									<li><i class="icon_clock_alt"></i> 1h 30min</li>
-									<li><i class="icon_like"></i> 890</li>
-									<li><a href="course-detail.html">Enroll now</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
+
+					<?php endwhile; ?>	
 					<!-- /box_list -->
 					<p class="text-center add_top_60"><a href="#0" class="btn_1 rounded">Load more</a></p>
 				</div>
