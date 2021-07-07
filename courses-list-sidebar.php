@@ -142,70 +142,45 @@
 										$i =1;
 										$qry = $conn->query("SELECT * from department");
 										$rows_count_value = mysqli_num_rows($qry);
-										while($row=$qry->fetch_assoc()):
-																				
-										?>									
+										?>
+																			
 									<li>
 										<label>
 											<input type="checkbox" class="icheck" checked>all <small>(<?php echo $rows_count_value ?>)</small>
 										</label>
 									</li>
-									<li>
 
-
-									</li>
 									<li>
+									<?php while($row=$qry->fetch_assoc()):?>
 										<label>
 											<input type="checkbox" class="icheck"><?php echo $row['department']?>
 										</label>
+										<br>
 									</li>
-									
+									<?php endwhile; ?>	
 								</ul>
 							</div>
-							<div class="filter_type">
-								<h6>Rating</h6>
-								<ul>
-									<li>
-										<label>
-											<input type="checkbox" class="icheck">
-											<span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i> <small>(145)</small></span>
-										</label>
-									</li>
-									<li>
-										<label>
-											<input type="checkbox" class="icheck">
-											<span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> <small>(25)</small></span>
-										</label>
-									</li>
-									<li>
-										<label>
-											<input type="checkbox" class="icheck">
-											<span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(68)</small></span>
-										</label>
-									</li>
-									<li>
-										<label>
-											<input type="checkbox" class="icheck">
-											<span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(34)</small></span>
-										</label>
-									</li>
-									<li>
-										<label>
-											<input type="checkbox" class="icheck">
-											<span class="rating"><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(10)</small></span>
-										</label>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<!--/collapse -->
-					</div>
+							
 					<!--/filters col-->
 				</aside>
 				<!-- /aside -->
 
 				<div class="col-lg-9" id="list_sidebar">
-					<div class="box_list wow">
+	
+					<?php
+
+					$conn = mysqli_connect("localhost", "root", "", "hussnainnasaruniversity");
+										 
+										// Check connection
+										if($conn === false){
+											die("ERROR: Could not connect. "
+												. mysqli_connect_error());
+										}
+										
+										$i =1;
+										$qry = $conn->query("SELECT * from department");
+					 while($row=$qry->fetch_assoc()):?>
+				<div class="box_list wow">
 						<div class="row no-gutters">
 							<div class="col-lg-5">
 								<figure class="block-reveal">
@@ -228,10 +203,13 @@
 								</ul>
 							</div>
 						</div>
+					 <br> <br><br>
 					</div>
-					<!-- /box_list -->
 
 					<?php endwhile; ?>	
+
+					<!-- /box_list -->
+
 					<!-- /box_list -->
 					<p class="text-center add_top_60"><a href="#0" class="btn_1 rounded">Load more</a></p>
 				</div>
