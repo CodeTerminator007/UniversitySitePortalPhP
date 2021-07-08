@@ -254,7 +254,7 @@ CREATE TABLE `messages` (
 CREATE TABLE `news` (
   `id` int(30) NOT NULL,
   `avatar` text DEFAULT NULL,
-  `date_added` DATE NOT  NULL,
+  `date_added` datetime NOT NULL DEFAULT current_timestamp(),
   `aurthur` text DEFAULT NULL,
   `topic` text DEFAULT NULL,
   `thenews` text DEFAULT NULL
@@ -464,6 +464,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+ALTER TABLE `messages`
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  
+
+ALTER TABLE `news`
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `academic_year`

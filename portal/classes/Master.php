@@ -262,6 +262,49 @@ Class Master extends DBConnection {
 		if($delete)
 			return 1;
 	}
+
+	public function save_news(){
+		extract($_POST);
+		
+		$data="";
+		$data2="";
+		foreach ($_POST as $key => $value) {
+			if(!in_array($key, array('id')) && !is_numeric($key)){
+				if(!empty($data)) $data .= ", ";
+				$data .= " {$key} = '{$value}' ";
+				if(!empty($data2)) $data2 .= "and ";
+				$data2 .= " {$key} = '{$value}' ";
+			}
+		}
+		$chk = $this->conn->query("SELECT * FROM news where $data2 ".((!empty($id))? " and id != {$id}" : ''));
+		if($chk->num_rows > 0){
+			return 2; 
+			exit;
+		}
+
+		if(empty($id)){
+			$sql = "INSERT INTO news set $data";
+		}else{
+			$sql = "UPDATE news set $data where id = $id";
+		}
+		$save = $this->conn->query($sql);
+		if($save){
+			$this->settings->set_flashdata('success'," Class Successfully saved.");
+			return 1;
+		}else{
+			$resp['err']= "error saving data";
+			$resp['sql']=$sql;
+			return json_encode($resp);
+		}
+	}
+	public function delete_news(){
+		extract($_POST);
+
+		$delete = $this->conn->query("DELETE FROM news where id = $id");
+		if($delete)
+			return 1;
+	}
+
 	public function student_class(){
 		extract($_POST);
 
