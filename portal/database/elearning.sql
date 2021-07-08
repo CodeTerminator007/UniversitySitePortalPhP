@@ -229,7 +229,7 @@ INSERT INTO `lesson_class` (`lesson_id`, `class_id`) VALUES
 CREATE TABLE `admission_form` (
   `id` int(30) NOT NULL,
   `firstname` varchar(150) NOT NULL,
-  `c` varchar(150) NOT NULL,
+  `lastname` varchar(150) NOT NULL,
   `email` varchar(250) NOT NULL,
   `contact` varchar(150) NOT NULL,
   `dob` int(11) NOT NULL,
@@ -241,9 +241,24 @@ CREATE TABLE `admission_form` (
   `preferenceCourse` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+CREATE TABLE `messages` (
+  `id` int(30) NOT NULL,
+  `firstname` varchar(150) NOT NULL,
+  `lastname` varchar(150) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `contact` varchar(150) NOT NULL,
+  `message` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
-
+CREATE TABLE `news` (
+  `id` int(30) NOT NULL,
+  `avatar` text DEFAULT NULL,
+  `date_added` DATE NOT  NULL,
+  `aurthur` text DEFAULT NULL,
+  `topic` text DEFAULT NULL,
+  `thenews` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
@@ -374,6 +389,9 @@ INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `password`, `ava
 ALTER TABLE `academic_year`
   ADD PRIMARY KEY (`id`);
 
+ALTER TABLE `news`
+  ADD PRIMARY KEY (`id`);  
+
 --
 -- Indexes for table `class`
 --
@@ -413,6 +431,11 @@ ALTER TABLE `admission_form`
 --
 ALTER TABLE `students`
   ADD PRIMARY KEY (`id`);
+
+
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`id`);
+
 
 --
 -- Indexes for table `student_class`

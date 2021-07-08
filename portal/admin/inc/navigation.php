@@ -103,6 +103,30 @@
                         </p>
                       </a>
                     </li>
+                    <li class="nav-item dropdown">
+                      <a href="<?php echo base_url ?>admin/?page=admission_form" class="nav-link nav-subject">
+                        <i class="nav-icon fas fa-tasks"></i>
+                        <p>
+                          Admission Forms
+                        </p>
+                      </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a href="<?php echo base_url ?>admin/?page=messages" class="nav-link nav-subject">
+                        <i class="nav-icon fas fa-tasks"></i>
+                        <p>
+                          Messages
+                        </p>
+                      </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a href="<?php echo base_url ?>admin/?page=news" class="nav-link nav-subject">
+                        <i class="nav-icon fas fa-tasks"></i>
+                        <p>
+                          News
+                        </p>
+                      </a>
+                    </li>
                   </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
