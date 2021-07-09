@@ -17,6 +17,7 @@
 					<th>Email</th>
 					<th>Contact</th>
 					<th>Message</th>
+					<th>Status</th>
 					<th>Action</th>
 				</tr>
 			</thead>
@@ -33,6 +34,7 @@
 					<td><span class="truncate"><?php echo $row['email'] ?></span></td>
 					<td><?php echo $row['contact'] ?></td>
 					<td><?php echo $row['message'] ?></td>
+					<td><?php if ($row['verified'] == 1){echo "Verified" ;} else {echo "Not Verified" ;}?>
 
 					<td class="text-center">
 						<div class="btn-group">

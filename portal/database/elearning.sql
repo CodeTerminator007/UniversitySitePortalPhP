@@ -247,7 +247,9 @@ CREATE TABLE `messages` (
   `lastname` varchar(150) NOT NULL,
   `email` varchar(250) NOT NULL,
   `contact` varchar(150) NOT NULL,
-  `message` text DEFAULT NULL
+  `message` text DEFAULT NULL,
+  `vkey` text DEFAULT  NULL,
+  `verified` int DEFAULT 0 ,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 

@@ -13,13 +13,15 @@
         $email = $_POST['email_contact'];
         $contact = $_POST['phone_contact'];
         $message = $_POST['message_contact'];
+        $vkey = md5(time().$first_name);
+
          
-        $sql = "INSERT INTO messages  VALUES ('','$first_name','$last_name','$email','$contact','$message')";
+        $sql = "INSERT INTO messages  VALUES ('','$first_name','$last_name','$email','$contact','$message','$vkey','')";
          
         if(mysqli_query($conn, $sql)){
             $to_email = $email;
-            $subject = "Messaged Received";
-            $body = "Hi we have received your messge we will contact you shortly";
+            $subject = "Messaged Received Email Verification";
+            $body = "<a href='http://localhost/UniversityWebProject/verify.php?vkey=$vkey'>Verify Here </a>  Hi we have received your messge we will contact you shortly";
             $headers = "From: Husnainahmad521@gmail.com";
             
             if (mail($to_email, $subject, $body, $headers)) {
